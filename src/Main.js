@@ -6,13 +6,18 @@ function Main() {
 	return (
 		<div className="Main">
 			<main>
-				<HornedBeast
-					beastName={beastData[0].keyword}
-					beastImg={beastData[0].image_url}
-					beastTitle={beastData[0].title}
-					beastDesc={beastData[0].description}
-					beastHorns={beastData[0].horns}
-				/>
+				{beastData.map((beast) => {
+					return (
+						<HornedBeast
+							beastName={beast.keyword}
+							beastImg={beast.image_url}
+							beastTitle={beast.title}
+							beastDesc={beast.description}
+							beastHorns={beast.horns}
+						/>
+					);
+				})}
+				;
 			</main>
 		</div>
 	);
@@ -27,3 +32,9 @@ export default Main;
 // description: "A unicorn and a narwhal nuzzling their horns",
 // keyword: "narwhal",
 // horns: 1,
+
+// beastName={beastData[0].keyword}
+// beastImg={beastData[0].image_url}
+// beastTitle={beastData[0].title}
+// beastDesc={beastData[0].description}
+// beastHorns={beastData[0].horns}

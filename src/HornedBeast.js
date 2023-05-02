@@ -10,9 +10,9 @@ function HornedBeast({
 	return (
 		<div className="HornedBeast">
 			<h2>{beastName}</h2>
+			<p className="horns">Horns: {beastHorns}</p>{" "}
 			<img className="beastImage" src={beastImg} alt="" title="" />
 			<p className="description">{beastDesc}</p>
-			<p className="horns">Horns: {beastHorns}</p>
 		</div>
 	);
 }
