@@ -1,13 +1,14 @@
 import "./App.css";
+import Header from "./Header.js";
+import Main from "./Main.js";
+import Footer from "./Footer.js";
 
 function App() {
 	return (
 		<div className="App">
-			<header>
-				<h1>Horned Beasts</h1>
-			</header>
-			<main></main>
-			<footer>created by Jezinho 2023</footer>
+			<Header />
+			<Main />
+			<Footer />
 		</div>
 	);
 }
