@@ -1,25 +1,49 @@
+import { useState } from "react";
 import "./App.css";
+import SelectedBeast from "./SelectedBeast";
 import HornedBeast from "./HornedBeast.js";
 import { beastData } from "./data.js";
 
 function Main() {
+	// set the useState (variable) instances
+	const [showSelected, setshowSelected] = useState(false);
+	const [modalImg, setmodalImg] = useState("");
+	const [modalDesc, setmodalDesc] = useState("");
+	// set up handler function for click on image
+	function imgClickHandler(selectedImg, imgDesc) {
+		console.log("working");
+		//toggle state of showSelected
+		setshowSelected(!showSelected);
+		// set state of modalImg as which image to display
+		setmodalImg(selectedImg);
+		// set state of modalDesc as description of image
+		setmodalDesc(imgDesc);
+		console.log(imgDesc);
+	}
+
 	return (
-		<div className="Main">
-			<main>
-				{beastData.map((beast) => {
-					return (
-						<HornedBeast
-							beastName={beast.keyword}
-							beastImg={beast.image_url}
-							beastTitle={beast.title}
-							beastDesc={beast.description}
-							beastHorns={beast.horns}
-						/>
-					);
-				})}
-				;
-			</main>
-		</div>
+		<main>
+			{beastData.map((beast) => {
+				return (
+					<HornedBeast
+						beastName={beast.keyword}
+						beastImg={beast.image_url}
+						beastTitle={beast.title}
+						beastDesc={beast.description}
+						beastHorns={beast.horns}
+						imgClickHandler={imgClickHandler}
+					/>
+				);
+			})}
+			;
+			{showSelected && (
+				<SelectedBeast
+					modalImg={modalImg}
+					modalDesc={modalDesc}
+					imgClickHandler={imgClickHandler}
+				/>
+			)}
+		</main>
 	);
 }
 

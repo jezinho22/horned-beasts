@@ -7,6 +7,7 @@ function HornedBeast({
 	beastDesc,
 	beastHorns,
 	beastTitle,
+	imgClickHandler,
 }) {
 	const [likes, setLikes] = useState(0);
 
@@ -23,7 +24,13 @@ function HornedBeast({
 		<div className="HornedBeast">
 			<h2>{beastName}</h2>
 			<p className="horns">Horns: {beastHorns}</p>{" "}
-			<img className="beastImage" src={beastImg} alt="" title="" />
+			<img
+				className="beastImage"
+				src={beastImg}
+				alt={beastName}
+				title=""
+				onClick={() => imgClickHandler(beastImg, beastDesc)}
+			/>
 			<p className="description">{beastDesc}</p>
 			<p className="heart">
 				<span onClick={handleClickLike}>❤️</span>
