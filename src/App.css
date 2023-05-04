@@ -3,13 +3,25 @@ body {
 	background-color: gold;
 	color: darkgreen;
 }
+header {
+	background-color: darkcyan;
+	padding: 1rem;
+	border-radius: 6px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	color: white;
+}
+.search {
+	display: inline-block;
+	align-self: center;
+}
 h1 {
+	display: inline-block;
 	font-size: 3rem;
 	text-align: center;
 	color: antiquewhite;
-	padding: 1rem;
-	background-color: darkgreen;
-	border-radius: 6px;
+	margin: 0;
 }
 h2,
 .horns,
