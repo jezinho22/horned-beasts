@@ -29,7 +29,9 @@ function HornedBeast({
 				src={beastImg}
 				alt={beastName}
 				title=""
-				onClick={() => imgClickHandler(beastImg, beastDesc)}
+				onClick={() =>
+					imgClickHandler({ image: beastImg, description: beastDesc })
+				}
 			/>
 			<p className="description">{beastDesc}</p>
 			<p className="heart">

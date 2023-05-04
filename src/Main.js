@@ -8,17 +8,13 @@ function Main() {
 	// set the useState (variable) instances
 	const [showSelected, setshowSelected] = useState(false);
 	const [modalImg, setmodalImg] = useState("");
-	const [modalDesc, setmodalDesc] = useState("");
 	// set up handler function for click on image
-	function imgClickHandler(selectedImg, imgDesc) {
+	function imgClickHandler(object) {
 		console.log("working");
 		//toggle state of showSelected
 		setshowSelected(!showSelected);
-		// set state of modalImg as which image to display
-		setmodalImg(selectedImg);
-		// set state of modalDesc as description of image
-		setmodalDesc(imgDesc);
-		console.log(imgDesc);
+		// set state of modalImg as object with data for image display
+		setmodalImg(object);
 	}
 
 	return (
@@ -37,11 +33,7 @@ function Main() {
 			})}
 			;
 			{showSelected && (
-				<SelectedBeast
-					modalImg={modalImg}
-					modalDesc={modalDesc}
-					imgClickHandler={imgClickHandler}
-				/>
+				<SelectedBeast modalImg={modalImg} imgClickHandler={imgClickHandler} />
 			)}
 		</main>
 	);

@@ -1,9 +1,9 @@
-function SelectedBeast({ modalImg, modalDesc, imgClickHandler }) {
+function SelectedBeast({ modalImg, imgClickHandler }) {
 	return (
 		<div className="selectedBeast" onClick={imgClickHandler}>
 			<figure>
-				<img src={modalImg} alt={modalDesc} />
-				<figcaption>{modalDesc}</figcaption>
+				<img src={modalImg.image} alt={modalImg.description} />
+				<figcaption>{modalImg.description}</figcaption>
 			</figure>
 		</div>
 	);
