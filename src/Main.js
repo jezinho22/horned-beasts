@@ -1,37 +1,26 @@
-import { useState } from "react";
 import "./App.css";
 import SelectedBeast from "./SelectedBeast";
 import HornedBeast from "./HornedBeast.js";
-import { beastData } from "./data.js";
-import Search from "./Search";
+import { useState } from "react";
 
-function Main() {
-	// set the useState (variable) instances
+function Main({ beastsToDisplay }) {
 	const [showSelected, setshowSelected] = useState(false);
-	const [modalImg, setmodalImg] = useState("");
+	const [modalImg, setmodalImg] = useState({});
+
 	// set up handler function for click on image
 	function imgClickHandler(object) {
-		console.log("working");
+		console.log("imgClickHandler " + object.image_url);
 		//toggle state of showSelected
 		setshowSelected(!showSelected);
 		// set state of modalImg as object with data for image display
 		setmodalImg(object);
+		console.log(modalImg);
 	}
 
 	return (
 		<main>
-			<Search imgClickHandler={imgClickHandler} />
-			{beastData.map((beast) => {
-				return (
-					<HornedBeast
-						beastName={beast.keyword}
-						beastImg={beast.image_url}
-						beastTitle={beast.title}
-						beastDesc={beast.description}
-						beastHorns={beast.horns}
-						imgClickHandler={imgClickHandler}
-					/>
-				);
+			{beastsToDisplay.map((beast) => {
+				return <HornedBeast beast={beast} imgClickHandler={imgClickHandler} />;
 			})}
 			;
 			{showSelected && (

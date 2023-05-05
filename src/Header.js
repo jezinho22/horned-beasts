@@ -1,9 +1,11 @@
 import "./App.css";
+import Search from "./Search";
 
-function Header() {
+function Header({ handleChange, handleSelect }) {
 	return (
 		<header>
 			<h1>Horned Beasts</h1>
+			<Search handleChange={handleChange} handleSelect={handleSelect} />
 		</header>
 	);
 }

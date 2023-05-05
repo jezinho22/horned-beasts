@@ -1,14 +1,7 @@
 import "./App.css";
 import { useState } from "react";
 
-function HornedBeast({
-	beastImg,
-	beastName,
-	beastDesc,
-	beastHorns,
-	beastTitle,
-	imgClickHandler,
-}) {
+function HornedBeast({ beast, imgClickHandler }) {
 	const [likes, setLikes] = useState(0);
 
 	function handleClickLike() {
@@ -22,18 +15,16 @@ function HornedBeast({
 	}
 	return (
 		<div className="HornedBeast">
-			<h2>{beastName}</h2>
-			<p className="horns">Horns: {beastHorns}</p>{" "}
+			<h2>{beast.title}</h2>
+			<p className="horns">Horns: {beast.horns}</p>{" "}
 			<img
 				className="beastImage"
-				src={beastImg}
-				alt={beastName}
+				src={beast.image_url}
+				alt={beast.title}
 				title=""
-				onClick={() =>
-					imgClickHandler({ image: beastImg, description: beastDesc })
-				}
+				onClick={() => imgClickHandler(beast)}
 			/>
-			<p className="description">{beastDesc}</p>
+			<p className="description">{beast.description}</p>
 			<p className="heart">
 				<span onClick={handleClickLike}>❤️</span>
 				&nbsp;{likes}&nbsp;

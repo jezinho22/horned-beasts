@@ -1,41 +1,25 @@
-import { useState } from "react";
-import SearchResult from "./SearchResult";
-import { beastData } from "./data";
-
-function Search({ imgClickHandler }) {
-	const [results, setresults] = useState([]);
-
-	function handleSearch(event) {
-		if (event.target.value) {
-			// turn the string from the input into a regexp
-			let searchRegExp = new RegExp(event.target.value, "gi");
-			// making a list of matches
-			let resultsArray = beastData.filter((beast) =>
-				findString(searchRegExp, beast)
-			);
-			console.log(resultsArray.length);
-			// update state with list of matches
-			setresults(resultsArray);
-		} else {
-			setresults([]);
-		}
-	}
-	// search each beast's keyword and return an array of matches
-	function findString(searchString, obj) {
-		let word = obj.keyword;
-		return word.match(searchString);
-	}
-
+function Search({ handleChange, handleSelect }) {
 	return (
-		<div className="search">
-			Search
-			<input type="text" name="search" id="search" onChange={handleSearch} />
-			{results.map((result) => {
-				return (
-					<SearchResult result={result} imgClickHandler={imgClickHandler} />
-				);
-			})}
-		</div>
+		<form className="search">
+			<label htmlFor="search">Search</label>
+			<input type="text" name="search" id="search" onChange={handleChange} />
+
+			<label htmlFor="select">Filter</label>
+			<select id="select" onChange={handleSelect}>
+				<option value="">All</option>
+				<option value="1">1 horn</option>
+				<option value="2">2 horns</option>
+				<option value="3">3 horns</option>
+				<option value="4">A bajillion horns</option>
+			</select>
+			<fieldset>
+				<legend>Sort by</legend>
+				<input type="radio" id="by-horns" name="by-horns" value="horns" />
+				<label htmlFor="by-horns">horns</label>
+				<input type="radio" id="by-likes" name="by-likes" value="likes" />
+				<label htmlFor="by-likes">likes</label>
+			</fieldset>
+		</form>
 	);
 }
 export default Search;
