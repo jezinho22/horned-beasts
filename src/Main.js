@@ -3,6 +3,7 @@ import "./App.css";
 import SelectedBeast from "./SelectedBeast";
 import HornedBeast from "./HornedBeast.js";
 import { beastData } from "./data.js";
+import Search from "./Search";
 
 function Main() {
 	// set the useState (variable) instances
@@ -19,6 +20,7 @@ function Main() {
 
 	return (
 		<main>
+			<Search imgClickHandler={imgClickHandler} />
 			{beastData.map((beast) => {
 				return (
 					<HornedBeast
