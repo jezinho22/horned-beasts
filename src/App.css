@@ -3,13 +3,34 @@ body {
 	background-color: gold;
 	color: darkgreen;
 }
+header {
+	background-color: darkcyan;
+	padding: 1rem;
+	border-radius: 6px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	color: white;
+}
+.search {
+	color: white;
+	position: absolute;
+	top: 40px;
+	right: 20px;
+}
+.search div {
+	background-color: white;
+	color: black;
+}
+.search input {
+	margin-left: 10px;
+}
 h1 {
+	display: inline-block;
 	font-size: 3rem;
 	text-align: center;
 	color: antiquewhite;
-	padding: 1rem;
-	background-color: darkgreen;
-	border-radius: 6px;
+	margin: 0;
 }
 h2,
 .horns,
